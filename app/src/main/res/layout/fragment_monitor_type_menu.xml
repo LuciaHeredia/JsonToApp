@@ -5,38 +5,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom|center_horizontal"
+    android:gravity="bottom|center_horizontal"
     android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button0"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_buttons"
+        android:focusable="true"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:text="@string/description"
-        android:layout_marginHorizontal="1dp"
-        style="?android:attr/buttonBarButtonStyle" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:text="@string/description"
-        android:layout_marginHorizontal="1dp"
-        style="?android:attr/buttonBarButtonStyle" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:text="@string/description"
-        android:layout_marginHorizontal="1dp"
-        style="?android:attr/buttonBarButtonStyle" />
-
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#fff" />
 
 </LinearLayout>

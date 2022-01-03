@@ -25,7 +25,7 @@ public class DataService {
 
     public List<MonitorType> getArrState() {
         List<MonitorType> monitorTypeList = new ArrayList<>();
-        String sURL = "https://run.mocky.io/v3/f46d7341-3367-4e27-a102-a3639c2093d0";
+        String sURL = "https://run.mocky.io/v3/381490c9-e474-437b-a56f-38b59b9c0ee1";
 
         mActivity.runOnUiThread((Runnable) () -> {
             URL url = null;

@@ -4,20 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jsontoapp.services.DataService;
 import com.example.jsontoapp.R;
-import com.example.jsontoapp.adapters.CustomAdapter;
+import com.example.jsontoapp.adapters.MonitorTypeButtonAdapter;
 import com.example.jsontoapp.objects.MonitorType;
 
 import java.util.List;
 
 public class MonitorTypeMenu extends Fragment {
     private List<MonitorType> monitorTypeList;
-    private CustomAdapter customAdapter;
+    private MonitorTypeButtonAdapter buttonAdapter;
+    private RecyclerView monitorTypeRV;
 
     public MonitorTypeMenu() {
     }
@@ -29,17 +31,16 @@ public class MonitorTypeMenu extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        DataService ds = new DataService(getActivity()); // get JSON data
         View v =  inflater.inflate(R.layout.fragment_monitor_type_menu, container, false);
 
-        monitorTypeList = ds.getArrState();
+        DataService ds = new DataService(getActivity());
+        monitorTypeList = ds.getArrState(); // get JSON data
 
-        Button button0 = (Button) v.findViewById(R.id.button0);
-        Button button1 = (Button) v.findViewById(R.id.button1);
-        Button button2 = (Button) v.findViewById(R.id.button2);
-        button0.setText(monitorTypeList.get(0).getName());
-        button1.setText(monitorTypeList.get(1).getName());
-        button2.setText(monitorTypeList.get(2).getName());
+        monitorTypeRV = v.findViewById(R.id.recycler_view_buttons);
+        monitorTypeRV.setHasFixedSize(true);
+        monitorTypeRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        buttonAdapter = new MonitorTypeButtonAdapter(getActivity(), monitorTypeList);
+        monitorTypeRV.setAdapter(buttonAdapter);
 
         return v;
     }
