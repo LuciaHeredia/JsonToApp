@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/monitorTypeMenuFragment">
+
+    <fragment
+        android:id="@+id/monitorMenuFragment"
+        android:name="com.example.jsontoapp.fragments.MonitorMenu"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_monitor_menu" />
+    <fragment
+        android:id="@+id/monitorTypeMenuFragment"
+        android:name="com.example.jsontoapp.fragments.MonitorTypeMenu"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_monitor_type_menu" >
+        <action
+            android:id="@+id/action_monitorTypeMenuFragment_to_monitorMenuFragment"
+            app:destination="@id/monitorMenuFragment" />
+    </fragment>
+</navigation>
