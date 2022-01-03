@@ -2,8 +2,11 @@ package com.example.jsontoapp.objects;
 
 public class Tags {
 
-    String label;
-    String color;
+    private String label;
+    private String color;
+
+    public Tags() {
+    }
 
     public Tags(String label, String color) {
         this.label = label;

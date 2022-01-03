@@ -4,8 +4,11 @@ import java.util.List;
 
 public class Legends {
 
-    int id;
+    private int id;
     private List<Tags> tagsList = null;
+
+    public Legends() {
+    }
 
     public Legends(int id) {
         this.id = id;

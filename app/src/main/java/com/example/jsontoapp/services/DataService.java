@@ -3,7 +3,12 @@ package com.example.jsontoapp.services;
 import android.os.StrictMode;
 import androidx.fragment.app.FragmentActivity;
 import com.example.jsontoapp.activities.MainActivity;
+import com.example.jsontoapp.objects.Legends;
+import com.example.jsontoapp.objects.Lists;
+import com.example.jsontoapp.objects.Monitor;
 import com.example.jsontoapp.objects.MonitorType;
+import com.example.jsontoapp.objects.Tags;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,9 +28,13 @@ public class DataService {
         mActivity = (MainActivity) fragmentActivity;
     }
 
-    public List<MonitorType> getArrState() {
+    public Lists getListsData() {
+        Lists listOfLists = new Lists();
         List<MonitorType> monitorTypeList = new ArrayList<>();
-        String sURL = "https://run.mocky.io/v3/381490c9-e474-437b-a56f-38b59b9c0ee1";
+        List<Monitor> monitorList = new ArrayList<>();
+        List<Legends> legendsList = new ArrayList<>();
+
+        String sURL = "https://e11fa232-ea43-4496-8b0f-13f41eb563f4.mock.pstmn.io/config";
 
         mActivity.runOnUiThread((Runnable) () -> {
             URL url = null;
@@ -54,10 +63,11 @@ public class DataService {
                     data = isr.read();
                 }
 
-                JSONObject jsonObject = new JSONObject(current);
-                JSONArray jsonArray = jsonObject.getJSONArray("MonitorType");
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                JSONObject jsonObject = new JSONObject(current); // all the JSON data
+
+                JSONArray MonitorTypeJsonArray = jsonObject.getJSONArray("MonitorType");
+                for (int i = 0; i < MonitorTypeJsonArray.length(); i++) {
+                    JSONObject jsonObject1 = MonitorTypeJsonArray.getJSONObject(i);
                     MonitorType type = new MonitorType();
                     type.setId(jsonObject1.getInt("Id"));
                     type.setName(jsonObject1.getString("Name"));
@@ -67,12 +77,48 @@ public class DataService {
                     monitorTypeList.add(type);
                 }
 
+                JSONArray LegendsJsonArray = jsonObject.getJSONArray("Legends");
+                for (int i = 0; i < LegendsJsonArray.length(); i++) {
+                    JSONObject jsonObject2 = LegendsJsonArray.getJSONObject(i);
+                    Legends legends = new Legends();
+                    legends.setId(jsonObject2.getInt("Id"));
+
+                    List<Tags> tagsList = new ArrayList<>();
+                    JSONArray TagsJsonArray = jsonObject.getJSONArray("tags");
+                    for (int j = 0; j < TagsJsonArray.length(); j++) {
+                        JSONObject jsonObject3 = TagsJsonArray.getJSONObject(i);
+                        Tags tags = new Tags();
+                        tags.setLabel(jsonObject3.getString("Label"));
+                        tags.setColor(jsonObject3.getString("Color"));
+
+                        tagsList.add(tags);
+                    }
+                    legends.setTagsList(tagsList);
+
+                    legendsList.add(legends);
+                }
+
+                JSONArray MonitorJsonArray = jsonObject.getJSONArray("Monitor");
+                for (int i = 0; i < MonitorJsonArray.length(); i++) {
+                    JSONObject jsonObject4 = MonitorJsonArray.getJSONObject(i);
+                    Monitor monitor = new Monitor();
+                    monitor.setId(jsonObject4.getInt("Id"));
+                    monitor.setName(jsonObject4.getString("Name"));
+                    monitor.setDesc(jsonObject4.getString("Desc"));
+                    monitor.setMonitorTypeId(jsonObject4.getInt("MonitorTypeId"));
+
+                    monitorList.add(monitor);
+                }
+
                 }catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
 
         });
 
-        return monitorTypeList;
+        listOfLists.setMonitorTypeList(monitorTypeList);
+        listOfLists.setLegendsList(legendsList);
+        listOfLists.setMonitorList(monitorList);
+        return listOfLists;
     }
 }

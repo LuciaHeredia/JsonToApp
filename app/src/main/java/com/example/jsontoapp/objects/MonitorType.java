@@ -1,14 +1,11 @@
 package com.example.jsontoapp.objects;
 
-import java.util.List;
-
 public class MonitorType {
 
-    int id;
-    String name;
-    int legendId;
-    String description;
-    private List<Monitor> monitors = null;
+    private int id;
+    private String name;
+    private int legendId;
+    private String description;
 
     public MonitorType() {
     }
@@ -18,14 +15,6 @@ public class MonitorType {
         this.name = name;
         this.legendId = legendId;
         this.description = description;
-    }
-
-    public MonitorType(int id, String name, int legendId, String description, List<Monitor> monitors) {
-        this.id = id;
-        this.name = name;
-        this.legendId = legendId;
-        this.description = description;
-        this.monitors = monitors;
     }
 
     public int getId() {
@@ -60,11 +49,4 @@ public class MonitorType {
         this.description = description;
     }
 
-    public List<Monitor> getMonitors() {
-        return monitors;
-    }
-
-    public void setMonitors(List<Monitor> monitors) {
-        this.monitors = monitors;
-    }
 }
