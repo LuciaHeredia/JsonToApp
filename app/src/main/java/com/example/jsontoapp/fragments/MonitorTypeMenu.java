@@ -4,21 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jsontoapp.services.DataService;
 import com.example.jsontoapp.R;
 import com.example.jsontoapp.adapters.CustomAdapter;
 import com.example.jsontoapp.objects.MonitorType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MonitorTypeMenu extends Fragment {
-    private ArrayList<MonitorType> monitorTypeList;
-    private RecyclerView recyclerView;
+    private List<MonitorType> monitorTypeList;
     private CustomAdapter customAdapter;
 
     public MonitorTypeMenu() {
@@ -31,25 +29,17 @@ public class MonitorTypeMenu extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //GetDataService ds = new GetDataService(getActivity());
+        DataService ds = new DataService(getActivity()); // get JSON data
         View v =  inflater.inflate(R.layout.fragment_monitor_type_menu, container, false);
 
-        recyclerView = v.findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        monitorTypeList = ds.getArrState();
 
-        monitorTypeList = new ArrayList<>();
-
-        MonitorType type = new MonitorType(0,"name","legendid","description");
-        monitorTypeList.add(type);
-
-        MonitorType type2 = new MonitorType(1,"name","legendid","description2");
-        monitorTypeList.add(type2);
-
-        //monitorTypeList = ds.getMonitorTypeData();
-
-        customAdapter = new CustomAdapter(monitorTypeList);
-        recyclerView.setAdapter(customAdapter);
+        Button button0 = (Button) v.findViewById(R.id.button0);
+        Button button1 = (Button) v.findViewById(R.id.button1);
+        Button button2 = (Button) v.findViewById(R.id.button2);
+        button0.setText(monitorTypeList.get(0).getName());
+        button1.setText(monitorTypeList.get(1).getName());
+        button2.setText(monitorTypeList.get(2).getName());
 
         return v;
     }

@@ -6,21 +6,21 @@ public class MonitorType {
 
     int id;
     String name;
-    String legendId;
+    int legendId;
     String description;
     private List<Monitor> monitors = null;
 
     public MonitorType() {
     }
 
-    public MonitorType(int id, String name, String legendId, String description) {
+    public MonitorType(int id, String name, int legendId, String description) {
         this.id = id;
         this.name = name;
         this.legendId = legendId;
         this.description = description;
     }
 
-    public MonitorType(int id, String name, String legendId, String description, List<Monitor> monitors) {
+    public MonitorType(int id, String name, int legendId, String description, List<Monitor> monitors) {
         this.id = id;
         this.name = name;
         this.legendId = legendId;
@@ -44,11 +44,11 @@ public class MonitorType {
         this.name = name;
     }
 
-    public String getLegendId() {
+    public int getLegendId() {
         return legendId;
     }
 
-    public void setLegendId(String legendId) {
+    public void setLegendId(int legendId) {
         this.legendId = legendId;
     }
 
