@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,11 +38,8 @@ public class MonitorTypeMenu extends Fragment {
         RecyclerView monitorTypeRV = v.findViewById(R.id.recycler_view_buttons);
         monitorTypeRV.setHasFixedSize(true);
         monitorTypeRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        MonitorTypeButtonAdapter buttonAdapter = new MonitorTypeButtonAdapter(getActivity(), listOfLists.getMonitorTypeList());
+        MonitorTypeButtonAdapter buttonAdapter = new MonitorTypeButtonAdapter(getActivity(), listOfLists);
         monitorTypeRV.setAdapter(buttonAdapter);
-
-        //Monitor Menu
-
 
 
         return v;

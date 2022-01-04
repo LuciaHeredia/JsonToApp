@@ -2,9 +2,9 @@ package com.example.jsontoapp.fragments;
 
 import androidx.fragment.app.Fragment;
 
-public class MonitorMenu extends Fragment {
+public class Legend extends Fragment {
 
-    public MonitorMenu() {
+    public Legend() {
     }
 
 }

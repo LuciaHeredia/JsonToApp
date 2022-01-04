@@ -6,17 +6,17 @@
     app:startDestination="@id/monitorTypeMenuFragment">
 
     <fragment
-        android:id="@+id/monitorMenuFragment"
-        android:name="com.example.jsontoapp.fragments.MonitorMenu"
-        android:label="fragment_success"
-        tools:layout="@layout/fragment_monitor_menu" />
+        android:id="@+id/legendFragment"
+        android:name="com.example.jsontoapp.fragments.Legend"
+        android:label="fragment_legend"
+        tools:layout="@layout/fragment_legend" />
     <fragment
         android:id="@+id/monitorTypeMenuFragment"
         android:name="com.example.jsontoapp.fragments.MonitorTypeMenu"
-        android:label="fragment_log_in"
+        android:label="fragment_monitor_type"
         tools:layout="@layout/fragment_monitor_type_menu" >
         <action
-            android:id="@+id/action_monitorTypeMenuFragment_to_monitorMenuFragment"
-            app:destination="@id/monitorMenuFragment" />
+            android:id="@+id/action_monitorTypeMenuFragment_to_legendFragment"
+            app:destination="@id/legendFragment" />
     </fragment>
 </navigation>
