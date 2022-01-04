@@ -36,7 +36,7 @@ public class DataService {
 
         String sURL = "https://e11fa232-ea43-4496-8b0f-13f41eb563f4.mock.pstmn.io/config";
 
-        mActivity.runOnUiThread((Runnable) () -> {
+        mActivity.runOnUiThread(() -> {
             URL url = null;
             String current = "";
             HttpURLConnection request;
@@ -73,40 +73,37 @@ public class DataService {
                     type.setName(jsonObject1.getString("Name"));
                     type.setLegendId(jsonObject1.getInt("LegendId"));
                     type.setDescription(jsonObject1.getString("description"));
-
                     monitorTypeList.add(type);
                 }
 
                 JSONArray LegendsJsonArray = jsonObject.getJSONArray("Legends");
-                for (int i = 0; i < LegendsJsonArray.length(); i++) {
-                    JSONObject jsonObject2 = LegendsJsonArray.getJSONObject(i);
+                for (int k = 0; k < LegendsJsonArray.length(); k++) {
+                    JSONObject jsonObject2 = LegendsJsonArray.getJSONObject(k);
                     Legends legends = new Legends();
                     legends.setId(jsonObject2.getInt("Id"));
 
                     List<Tags> tagsList = new ArrayList<>();
-                    JSONArray TagsJsonArray = jsonObject.getJSONArray("tags");
+                    JSONArray TagsJsonArray = jsonObject2.getJSONArray("tags");
                     for (int j = 0; j < TagsJsonArray.length(); j++) {
-                        JSONObject jsonObject3 = TagsJsonArray.getJSONObject(i);
+                        JSONObject jsonObject3 = TagsJsonArray.getJSONObject(j);
                         Tags tags = new Tags();
                         tags.setLabel(jsonObject3.getString("Label"));
                         tags.setColor(jsonObject3.getString("Color"));
-
                         tagsList.add(tags);
                     }
-                    legends.setTagsList(tagsList);
+                    legends.setTags(tagsList);
 
                     legendsList.add(legends);
                 }
 
                 JSONArray MonitorJsonArray = jsonObject.getJSONArray("Monitor");
-                for (int i = 0; i < MonitorJsonArray.length(); i++) {
-                    JSONObject jsonObject4 = MonitorJsonArray.getJSONObject(i);
+                for (int p = 0; p < MonitorJsonArray.length(); p++) {
+                    JSONObject jsonObject4 = MonitorJsonArray.getJSONObject(p);
                     Monitor monitor = new Monitor();
                     monitor.setId(jsonObject4.getInt("Id"));
                     monitor.setName(jsonObject4.getString("Name"));
                     monitor.setDesc(jsonObject4.getString("Desc"));
                     monitor.setMonitorTypeId(jsonObject4.getInt("MonitorTypeId"));
-
                     monitorList.add(monitor);
                 }
 

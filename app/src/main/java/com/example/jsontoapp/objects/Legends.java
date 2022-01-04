@@ -5,18 +5,9 @@ import java.util.List;
 public class Legends {
 
     private int id;
-    private List<Tags> tagsList = null;
+    private List<Tags> tags = null;
 
     public Legends() {
-    }
-
-    public Legends(int id) {
-        this.id = id;
-    }
-
-    public Legends(int id, List<Tags> tagsList) {
-        this.id = id;
-        this.tagsList = tagsList;
     }
 
     public int getId() {
@@ -27,11 +18,11 @@ public class Legends {
         this.id = id;
     }
 
-    public List<Tags> getTagsList() {
-        return tagsList;
+    public List<Tags> getTags() {
+        return tags;
     }
 
-    public void setTagsList(List<Tags> tagsList) {
-        this.tagsList = tagsList;
+    public void setTags(List<Tags> tags) {
+        this.tags = tags;
     }
 }

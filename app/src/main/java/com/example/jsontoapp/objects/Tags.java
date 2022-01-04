@@ -8,11 +8,6 @@ public class Tags {
     public Tags() {
     }
 
-    public Tags(String label, String color) {
-        this.label = label;
-        this.color = color;
-    }
-
     public String getLabel() {
         return label;
     }

@@ -11,12 +11,6 @@ public class Lists {
     public Lists() {
     }
 
-    public Lists(List<MonitorType> monitorTypeList, List<Monitor> monitorList, List<Legends> legendsList) {
-        this.monitorTypeList = monitorTypeList;
-        this.monitorList = monitorList;
-        this.legendsList = legendsList;
-    }
-
     public List<MonitorType> getMonitorTypeList() {
         return monitorTypeList;
     }

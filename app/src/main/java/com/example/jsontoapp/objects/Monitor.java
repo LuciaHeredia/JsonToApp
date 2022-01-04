@@ -1,21 +1,14 @@
 package com.example.jsontoapp.objects;
 
-
 public class Monitor {
 
     private int id;
     private String name;
     private String desc;
     private int monitorTypeId;
+    private Legends monitorLegend;
 
     public Monitor() {
-    }
-
-    public Monitor(int id, String name, String desc, int monitorTypeId) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
-        this.monitorTypeId = monitorTypeId;
     }
 
     public int getId() {
@@ -50,4 +43,11 @@ public class Monitor {
         this.monitorTypeId = monitorTypeId;
     }
 
+    public Legends getMonitorLegend() {
+        return monitorLegend;
+    }
+
+    public void setMonitorLegend(Legends monitorLegend) {
+        this.monitorLegend = monitorLegend;
+    }
 }
