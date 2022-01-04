@@ -5,13 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.jsontoapp.R;
 import com.example.jsontoapp.adapters.LegendAdapter;
-import com.example.jsontoapp.adapters.MonitorTypeButtonAdapter;
 
 public class Legend extends Fragment {
 
@@ -33,8 +30,6 @@ public class Legend extends Fragment {
         legendRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         LegendAdapter legendAdapter = new LegendAdapter();
         legendRV.setAdapter(legendAdapter);
-
-
 
         return v;
     }

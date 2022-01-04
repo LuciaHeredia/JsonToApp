@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MonitorTypeMenu extends Fragment {
-    private View v;
     private Lists listOfLists;
 
     public MonitorTypeMenu() {
@@ -32,7 +31,7 @@ public class MonitorTypeMenu extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v =  inflater.inflate(R.layout.fragment_monitor_type_menu, container, false);
+        View v = inflater.inflate(R.layout.fragment_monitor_type_menu, container, false);
 
         listOfLists = new Lists();
 
@@ -54,7 +53,7 @@ public class MonitorTypeMenu extends Fragment {
 
     private void connectLists() {
 
-        // Monitor TO MonitorType
+        // Monitor To MonitorType
         for(int i=0;i<listOfLists.getMonitorTypeList().size();i++){
             MonitorType monitorType = listOfLists.getMonitorTypeList().get(i);
             List<Monitor> monitorList = new ArrayList<>();
@@ -66,7 +65,7 @@ public class MonitorTypeMenu extends Fragment {
             monitorType.setMonitorList(monitorList); // add Monitor list to MonitorType
         }
 
-        // Legend to Monitor by MonitorType_LegendId
+        // Legend To Monitor by MonitorType_LegendId
         for(int i=0;i<listOfLists.getMonitorList().size();i++){
             Monitor monitor = listOfLists.getMonitorList().get(i);
             int monitorTypeIndex = monitor.getMonitorTypeId();

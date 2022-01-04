@@ -31,7 +31,7 @@ public class LegendAdapter extends RecyclerView.Adapter<LegendAdapter.LegendView
 
     @Override
     public void onBindViewHolder(@NonNull LegendAdapter.LegendViewHolder holder, int position) {
-        holder.title.setText("legend describe");
+        holder.title.setText("item");
     }
 
     @Override

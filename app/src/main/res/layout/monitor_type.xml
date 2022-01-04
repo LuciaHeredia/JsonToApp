@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
+        android:hint="@string/text"
         android:layout_marginHorizontal="1dp"
         style="?android:attr/buttonBarButtonStyle" />
 
