@@ -6,5 +6,8 @@ A self app creation.<br />
 In progress..
 
 ## App created with:
-* Android version: 12
-* SDK version: 31
+* Android target version: 12
+* SDK target version: 31
+* 
+* Android min version: 6
+* SDK min version: 23
