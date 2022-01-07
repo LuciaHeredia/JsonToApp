@@ -5,7 +5,7 @@ import java.util.List;
 public class Legends {
 
     private int id;
-    private List<Tags> tags = null;
+    private List<Tags> tags;
 
     public Legends() {
     }

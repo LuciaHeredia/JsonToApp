@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -70,10 +73,14 @@ public class MonitorTypeMenu extends Fragment {
             Monitor monitor = listOfLists.getMonitorList().get(i);
             int monitorTypeIndex = monitor.getMonitorTypeId();
             MonitorType monitorType = listOfLists.getMonitorTypeList().get(monitorTypeIndex);
-            Legends legendToMonitor = listOfLists.getLegendsList().get(monitorType.getLegendId());
-            monitor.setMonitorLegend(legendToMonitor); // add Legend to Monitor
+            for(int j=0;j<listOfLists.getLegendsList().size();j++){
+                Legends legendToMonitor = listOfLists.getLegendsList().get(j);
+                if(legendToMonitor.getId()==monitorType.getLegendId())
+                    monitor.setMonitorLegend(legendToMonitor); // add Legend to Monitor
+            }
         }
 
     }
+
 
 }

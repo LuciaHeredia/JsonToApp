@@ -9,7 +9,11 @@
         android:id="@+id/legendFragment"
         android:name="com.example.jsontoapp.fragments.Legend"
         android:label="fragment_legend"
-        tools:layout="@layout/fragment_legend" />
+        tools:layout="@layout/fragment_legend" >
+        <argument
+            android:name="legendToShowInFragment"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/monitorTypeMenuFragment"
         android:name="com.example.jsontoapp.fragments.MonitorTypeMenu"

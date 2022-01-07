@@ -1,5 +1,7 @@
 package com.example.jsontoapp.adapters;
 
+
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -8,19 +10,25 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jsontoapp.R;
+import com.example.jsontoapp.fragments.Legend;
 import com.example.jsontoapp.objects.Legends;
 import com.example.jsontoapp.objects.Lists;
 import com.example.jsontoapp.objects.Monitor;
 import com.example.jsontoapp.objects.MonitorType;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeButtonAdapter.MyViewHolder> {
     private View view;
     private final Lists dataSet;
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private final Button button;
@@ -30,6 +38,7 @@ public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeBu
             super(itemView);
             button = itemView.findViewById(R.id.btn);
             popupMenu = new PopupMenu(itemView.getContext(), button);
+
         }
     }
 
@@ -59,12 +68,25 @@ public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeBu
 
         // when clicking a Monitor -> show Legend in new fragment
         holder.popupMenu.setOnMenuItemClickListener(item -> {
+
             int id = item.getItemId(); // id of clicked Monitor
             Monitor monitorClicked = monitorType.getMonitorList().get(id);
             Legends legendToShow = monitorClicked.getMonitorLegend();
-            // open fragment_legend
-            Navigation.findNavController(view).navigate(R.id.action_monitorTypeMenuFragment_to_legendFragment);
-            /* TODO: send object Legend 'legendToShow' to fragment_legend */
+
+            Gson gson = new Gson();
+
+            String legendToJsonString = gson.toJson(legendToShow);
+
+            List<String> legendDetails = new ArrayList<>();
+            legendDetails.add(dataSet.getMonitorTypeList().get(monitorClicked.getMonitorTypeId()).getDescription()); // description
+            legendDetails.add(legendToJsonString); // Legend string
+
+            String legendDetailsToJsonString = gson.toJson(legendDetails);
+
+            // navigate to destination passing jsonString data
+            Bundle bundle = new Bundle();
+            bundle.putString("legendToShowInFragment", legendDetailsToJsonString);
+            Navigation.findNavController(view).navigate(R.id.action_monitorTypeMenuFragment_to_legendFragment, bundle);
 
             return false;
         });
