@@ -107,6 +107,8 @@ public class DataService {
                     monitorList.add(monitor);
                 }
 
+                isr.close(); // close url reader
+
                 }catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }

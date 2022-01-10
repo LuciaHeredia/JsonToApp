@@ -58,12 +58,6 @@ public class Legend extends Fragment {
         LegendAdapter legendAdapter = new LegendAdapter(legend.getTags());
         legendRV.setAdapter(legendAdapter);
 
-        Button backButton = v.findViewById(R.id.btn_back);
-        backButton.setOnClickListener(v1 -> {
-            requireActivity().onBackPressed(); // back to HomeFragment
-        });
-
-
         return v;
     }
 

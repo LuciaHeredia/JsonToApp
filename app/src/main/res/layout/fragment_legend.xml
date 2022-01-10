@@ -8,18 +8,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/teal_700"
-        android:textColor="@drawable/button_color_change"
-        android:text="@string/back"
-        tools:ignore="TextContrastCheck" />
-
     <TextView
         android:id="@+id/text_monitor_type_desc"
         android:layout_width="wrap_content"

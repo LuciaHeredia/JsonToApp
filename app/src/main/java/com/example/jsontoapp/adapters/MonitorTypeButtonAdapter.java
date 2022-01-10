@@ -36,7 +36,6 @@ public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeBu
             super(itemView);
             button = itemView.findViewById(R.id.btn);
             popupMenu = new PopupMenu(itemView.getContext(), button);
-
         }
     }
 
