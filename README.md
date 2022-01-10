@@ -1,6 +1,6 @@
 # JsonToApp
 
-Android app.<br />
+The app was built to improve self-knowledge in the field of JSON files.<br />
 
 ## App description:
 The app reads a JSON file obtained from a link the user gives to it.<br />
