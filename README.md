@@ -8,7 +8,7 @@ A button-menu is created(by the first list in the file), clicking each button op
 The app is made dynamically, depends on the objects in the JSON file, new buttons may be added(adding a new object to the first list in the file), same as new list items(third list in the file) and new variables to the Legend(second list in the file), connecting each by id's as the objects before.<br />
 
 
-<img src = "gif-ex.gif" height="580">
+<img src = "gif-example.gif" height="580">
 
 ## App created with:
 * Android min version: 6
