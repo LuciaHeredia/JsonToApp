@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="bottom|center_horizontal"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -9,12 +10,13 @@
 
     <Button
         android:id="@+id/btn"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:hint="@string/text"
         android:layout_marginHorizontal="1dp"
-        style="?android:attr/buttonBarButtonStyle" />
+        android:backgroundTint="@color/teal_700"
+        android:hint="@string/text"
+        android:textColor="@drawable/button_color_change"
+        tools:ignore="TextContrastCheck" />
 
 </LinearLayout>

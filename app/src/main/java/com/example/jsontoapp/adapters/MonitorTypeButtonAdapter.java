@@ -10,12 +10,10 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jsontoapp.R;
-import com.example.jsontoapp.fragments.Legend;
 import com.example.jsontoapp.objects.Legends;
 import com.example.jsontoapp.objects.Lists;
 import com.example.jsontoapp.objects.Monitor;
@@ -75,13 +73,23 @@ public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeBu
 
             Gson gson = new Gson();
 
-            String legendToJsonString = gson.toJson(legendToShow);
+            String legendToJsonString = gson.toJson(legendToShow); // Legend to JsonString
 
             List<String> legendDetails = new ArrayList<>();
-            legendDetails.add(dataSet.getMonitorTypeList().get(monitorClicked.getMonitorTypeId()).getDescription()); // description
-            legendDetails.add(legendToJsonString); // Legend string
 
-            String legendDetailsToJsonString = gson.toJson(legendDetails);
+            String monitorTypeDesc = dataSet.getMonitorTypeList().get(monitorClicked.getMonitorTypeId()).getDescription();
+            if (monitorTypeDesc.equals(""))
+                monitorTypeDesc = dataSet.getMonitorTypeList().get(monitorClicked.getMonitorTypeId()).getName();
+            legendDetails.add(monitorTypeDesc); // add monitor type description to array
+
+            String monitorDesc = monitorClicked.getDesc();
+            if(monitorDesc.equals(""))
+                monitorDesc = monitorClicked.getName();
+            legendDetails.add(monitorDesc); // add monitor description to array
+
+            legendDetails.add(legendToJsonString); // add Legend string to array
+
+            String legendDetailsToJsonString = gson.toJson(legendDetails); // array of strings to JsonString
 
             // navigate to destination passing jsonString data
             Bundle bundle = new Bundle();
