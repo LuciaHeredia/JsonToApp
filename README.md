@@ -1,6 +1,6 @@
 # JsonToApp
 
-Android app<br />
+Android app.<br />
 
 ## App description:
 The app reads a JSON file obtained from a link the user gives to it.<br />
