@@ -1,5 +1,6 @@
 package com.example.jsontoapp.adapters;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,8 @@ public class LegendAdapter extends RecyclerView.Adapter<LegendAdapter.LegendView
         TextView textViewColor = holder.color;
         TextView textViewLabel= holder.label;
 
-        textViewColor.setText(tags.get(position).getColor());
+       // textViewColor.setText(tags.get(position).getColor());
+        textViewColor.setBackgroundColor(Color.parseColor(tags.get(position).getColor()));
         textViewLabel.setText(tags.get(position).getLabel());
     }
 

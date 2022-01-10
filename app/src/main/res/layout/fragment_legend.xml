@@ -24,7 +24,8 @@
         android:id="@+id/text_monitor_type_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:hint="@string/title"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -34,7 +35,19 @@
         android:id="@+id/text_monitor_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:hint="@string/title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="20sp"
         tools:ignore="TextContrastCheck" />
@@ -42,12 +55,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_legend"
         android:focusable="true"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="30dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_vertical"
         android:background="#fff"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
