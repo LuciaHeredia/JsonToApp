@@ -3,7 +3,9 @@
 In progress..<br />
 
 ## App description:
-In progress..
+The app reads a JSON file obtained from a link the user gives to it.<br />
+A button-menu is created(by the first list in the file), clicking each button opens another list-menu(third list in the file), clicking each item on the list opens a legend(second list in the file), all of them connected by id's to know wich belongs to who.
+
 
 <img src = "gif-ex.gif" height="580">
 
