@@ -15,7 +15,6 @@ import com.example.jsontoapp.objects.Tags;
 import java.util.List;
 
 public class LegendAdapter extends RecyclerView.Adapter<LegendAdapter.LegendViewHolder> {
-    private View view;
     private final List<Tags> tags;
 
     public static class LegendViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +35,7 @@ public class LegendAdapter extends RecyclerView.Adapter<LegendAdapter.LegendView
     @NonNull
     @Override
     public LegendViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        view = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.legend_row, parent, false);
         return new LegendViewHolder(view);
     }
@@ -46,7 +45,6 @@ public class LegendAdapter extends RecyclerView.Adapter<LegendAdapter.LegendView
         TextView textViewColor = holder.color;
         TextView textViewLabel= holder.label;
 
-       // textViewColor.setText(tags.get(position).getColor());
         textViewColor.setBackgroundColor(Color.parseColor(tags.get(position).getColor()));
         textViewLabel.setText(tags.get(position).getLabel());
     }

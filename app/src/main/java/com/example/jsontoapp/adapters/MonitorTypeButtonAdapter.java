@@ -27,7 +27,6 @@ public class MonitorTypeButtonAdapter extends RecyclerView.Adapter<MonitorTypeBu
     private View view;
     private final Lists dataSet;
 
-
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private final Button button;
         private final PopupMenu popupMenu;
