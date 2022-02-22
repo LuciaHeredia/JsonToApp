@@ -1,5 +1,6 @@
 # JsonToApp
 
+JsonReader App in Java, Android Studio. <br />
 The app was built to improve self-knowledge in the field of JSON files.<br />
 
 ## App description:
