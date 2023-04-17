@@ -11,7 +11,8 @@ The app is made dynamically, depends on the objects in the JSON file, new button
 
 <img src = "gif-example.gif" height="580">
 
-## App created with:
+## Created with:
+* Android studio: Java.
 * Android min version: 6
 * Android target version: 12
 * SDK min version: 23
